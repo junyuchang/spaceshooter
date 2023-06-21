@@ -1,0 +1,24 @@
+//Taken from https://medium.com/@chamo.wijetunga/movement-of-a-2d-player-in-unity-aff2b8f02fb5
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerMovement : MonoBehaviour
+{
+
+    //Base speed
+    public Vector2 speed = new Vector2(50,50);
+
+    // Update is called once per frame
+    void Update()
+    {
+        float inputX = Input.GetAxis("Horizontal");
+        float inputY = Input.GetAxis("Vertical");
+
+        Vector2 movement = new Vector2(speed.x*inputX,speed.y*inputY);
+
+        movement *= Time.deltaTime;
+
+        transform.Translate(movement);
+    }
+}
