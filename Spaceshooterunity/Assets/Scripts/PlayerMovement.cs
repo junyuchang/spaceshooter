@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
         float inputY = Input.GetAxis("Vertical");
 
         Vector2 movement = new Vector2(speed.x * inputX, speed.y * inputY);
-        Debug.Log(speed.x * inputX);
+        //Debug.Log(speed.x * inputX);
         movement *= Time.deltaTime;
         transform.Translate(movement, Space.World);
 
