@@ -6,6 +6,7 @@ using UnityEngine;
 public class Mob : MonoBehaviour
 {
     public float health = 50f;
+    public int damage = 100;
 
     public void TakeDamage(float damage)
     {
@@ -19,5 +20,20 @@ public class Mob : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
+    }
+
+    void OnCollisionEnter2D(Collision2D hitInfo){
+        //Debug.Log("somethign");
+        Debug.Log(hitInfo.gameObject);
+        Player player = hitInfo.gameObject.GetComponent<Player>();
+        if (player != null)
+        {
+            player.TakeDamage(damage);
+        }
+        /*Mob enemy = hitInfo.GetComponent<Mob>();
+        if (enemy != null)
+        {
+            enemy.TakeDamage(bulletDamage);
+        }*/
     }
 }
