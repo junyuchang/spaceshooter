@@ -755,7 +755,7 @@ GameObject:
   - component: {fileID: 1759706575}
   m_Layer: 0
   m_Name: humans_ship_04
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -856,6 +856,7 @@ MonoBehaviour:
   firePoint: {fileID: 566949186}
   bulletPreFab: {fileID: 2944711250480448070, guid: 1c324b024f76e454b98be8edd84dba59, type: 3}
   bulletForce: 15
+  firerate: 1
 --- !u!1 &2080827260
 GameObject:
   m_ObjectHideFlags: 0
@@ -1020,6 +1021,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Circle
       objectReference: {fileID: 0}
+    - target: {fileID: 3602237455471044229, guid: 438f9f233d757db438511643053e1c22, type: 3}
+      propertyPath: m_TagString
+      value: Destructible
+      objectReference: {fileID: 0}
     - target: {fileID: 5680491979910719673, guid: 438f9f233d757db438511643053e1c22, type: 3}
       propertyPath: m_BodyType
       value: 2
@@ -1048,6 +1053,10 @@ PrefabInstance:
     - target: {fileID: 3767256686372519150, guid: 33d91fcaa82f5344199298dcdbc3d1aa, type: 3}
       propertyPath: m_Name
       value: Square
+      objectReference: {fileID: 0}
+    - target: {fileID: 3767256686372519150, guid: 33d91fcaa82f5344199298dcdbc3d1aa, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 3974151293471548535, guid: 33d91fcaa82f5344199298dcdbc3d1aa, type: 3}
       propertyPath: m_RootOrder

@@ -20,15 +20,19 @@ public class Bullet : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D hitInfo){
-        Debug.Log(hitInfo.name);
-        Mob enemy = hitInfo.GetComponent<Mob>();
-        if (enemy != null)
+        if (hitInfo.gameObject.tag == "Enemy" || hitInfo.gameObject.tag == "Destructible")
         {
-            enemy.TakeDamage(bulletDamage);
+            Debug.Log(hitInfo.name);
+            Mob enemy = hitInfo.GetComponent<Mob>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(bulletDamage);
+            }
+            GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
+            Destroy(effect, 0.1f);
+            Destroy(gameObject);
         }
-        GameObject effect = Instantiate(hitEffect,transform.position, Quaternion.identity);
-        Destroy(effect,0.1f);
-        Destroy(gameObject);
+        
     }
     void Update()
     {
