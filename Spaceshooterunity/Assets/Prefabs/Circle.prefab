@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 9014376018977322875}
   m_Layer: 0
   m_Name: Circle
-  m_TagString: Untagged
+  m_TagString: Destructible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
