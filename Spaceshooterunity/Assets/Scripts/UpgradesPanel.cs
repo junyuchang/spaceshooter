@@ -5,7 +5,7 @@ using UnityEngine;
 public class UpgradesPanel : MonoBehaviour
 {
     public GameObject Panel;
-    private bool panelOpened = false;
+    public bool panelOpened;
 
     public void OpenClosePanel()
     {

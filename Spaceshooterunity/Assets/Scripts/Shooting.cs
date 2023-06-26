@@ -9,11 +9,11 @@ public class Shooting : MonoBehaviour
     public GameObject bulletPreFab;
 
     public float bulletForce = 50f;
-    public float firerate = 1f;
+    public float firerate = 3f;
     private bool isShooting = false;
     private Coroutine shooting;
     private bool toggleOn = false;
-
+    private float waitTime;
     // Update is called once per frame
     void Update()
     {
@@ -49,8 +49,7 @@ public class Shooting : MonoBehaviour
     {
         while (true)
         {
-            
-            yield return new WaitForSeconds(firerate);
+            yield return new WaitForSeconds(1f / firerate);
             shoot();
         }
     }
@@ -59,5 +58,10 @@ public class Shooting : MonoBehaviour
         GameObject bullet = Instantiate(bulletPreFab, firePoint.position,firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+    }
+
+    public void FireRateUp()
+    {
+        firerate = firerate * 1.75f;
     }
 }

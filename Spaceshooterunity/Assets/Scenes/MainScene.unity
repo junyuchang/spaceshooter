@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 67187407}
   - component: {fileID: 67187406}
   - component: {fileID: 67187405}
+  - component: {fileID: 67187408}
   m_Layer: 5
   m_Name: FireRateButton
   m_TagString: Untagged
@@ -206,7 +207,43 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 67187406}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1759706575}
+        m_TargetAssemblyTypeName: Shooting, Assembly-CSharp
+        m_MethodName: FireRateUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1663656407}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: pauseResumeTime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 165138511}
+        m_TargetAssemblyTypeName: UpgradesPanel, Assembly-CSharp
+        m_MethodName: OpenClosePanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &67187406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,6 +282,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 67187403}
   m_CullTransparentMesh: 1
+--- !u!114 &67187408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67187403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b185297c059f964b9e8f2e35ac22efb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 670703777}
 --- !u!1 &119064068
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,6 +592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Panel: {fileID: 635715926}
+  panelOpened: 0
 --- !u!1 &201180998
 GameObject:
   m_ObjectHideFlags: 0
@@ -1333,7 +1384,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &635715927
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1395,6 +1446,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 635715926}
   m_CullTransparentMesh: 1
+--- !u!1 &670703777 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4086890529918119734, guid: f0921d9e89edd814d89745ed96e80813, type: 3}
+  m_PrefabInstance: {fileID: 5456898222556568288}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &678663456
 GameObject:
   m_ObjectHideFlags: 0
@@ -2580,6 +2636,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7802038633531195540, guid: f0921d9e89edd814d89745ed96e80813, type: 3}
   m_PrefabInstance: {fileID: 5456898222556568288}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1759706575 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4082675719092827989, guid: f0921d9e89edd814d89745ed96e80813, type: 3}
+  m_PrefabInstance: {fileID: 5456898222556568288}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670703777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff8970db3cd2afd49b3ecb9c96446c7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1779651202 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3767256686372519150, guid: 33d91fcaa82f5344199298dcdbc3d1aa, type: 3}
@@ -3072,6 +3139,10 @@ PrefabInstance:
       propertyPath: healthbar
       value: 
       objectReference: {fileID: 487679614}
+    - target: {fileID: 4082675719092827989, guid: f0921d9e89edd814d89745ed96e80813, type: 3}
+      propertyPath: firerate
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4086890529918119734, guid: f0921d9e89edd814d89745ed96e80813, type: 3}
       propertyPath: m_Name
       value: humans_ship_04
