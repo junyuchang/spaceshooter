@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 67187407}
   - component: {fileID: 67187406}
   - component: {fileID: 67187405}
-  - component: {fileID: 67187408}
   m_Layer: 5
   m_Name: FireRateButton
   m_TagString: Untagged
@@ -282,19 +281,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 67187403}
   m_CullTransparentMesh: 1
---- !u!114 &67187408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 67187403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b185297c059f964b9e8f2e35ac22efb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 670703777}
 --- !u!1 &119064068
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,7 +364,43 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 119064071}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1759706575}
+        m_TargetAssemblyTypeName: Shooting, Assembly-CSharp
+        m_MethodName: ConeLvlUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1663656407}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: pauseResumeTime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 165138511}
+        m_TargetAssemblyTypeName: UpgradesPanel, Assembly-CSharp
+        m_MethodName: OpenClosePanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &119064071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -798,7 +820,43 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 445957268}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1759706575}
+        m_TargetAssemblyTypeName: Shooting, Assembly-CSharp
+        m_MethodName: LineLvlUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1663656407}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: pauseResumeTime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 165138511}
+        m_TargetAssemblyTypeName: UpgradesPanel, Assembly-CSharp
+        m_MethodName: OpenClosePanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &445957268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1009,7 +1067,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -335, y: 154}
+  m_AnchoredPosition: {x: -331, y: 133}
   m_SizeDelta: {x: 52, y: 9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &487679614
@@ -1446,11 +1504,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 635715926}
   m_CullTransparentMesh: 1
---- !u!1 &670703777 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4086890529918119734, guid: f0921d9e89edd814d89745ed96e80813, type: 3}
-  m_PrefabInstance: {fileID: 5456898222556568288}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &678663456
 GameObject:
   m_ObjectHideFlags: 0
@@ -2641,7 +2694,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4082675719092827989, guid: f0921d9e89edd814d89745ed96e80813, type: 3}
   m_PrefabInstance: {fileID: 5456898222556568288}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 670703777}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff8970db3cd2afd49b3ecb9c96446c7f, type: 3}
@@ -3139,6 +3192,22 @@ PrefabInstance:
       propertyPath: healthbar
       value: 
       objectReference: {fileID: 487679614}
+    - target: {fileID: 1787728531355600285, guid: f0921d9e89edd814d89745ed96e80813, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787728531355600285, guid: f0921d9e89edd814d89745ed96e80813, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4082675719092827989, guid: f0921d9e89edd814d89745ed96e80813, type: 3}
+      propertyPath: coneLvl
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4082675719092827989, guid: f0921d9e89edd814d89745ed96e80813, type: 3}
+      propertyPath: lineLvl
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4082675719092827989, guid: f0921d9e89edd814d89745ed96e80813, type: 3}
       propertyPath: firerate
       value: 4
