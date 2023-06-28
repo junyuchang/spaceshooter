@@ -8,8 +8,8 @@ public class RangedMobMovement : MonoBehaviour
     float speed;
     public float speedValue = 1f;
     public GameObject player;
-
     public Rigidbody2D rb;
+    public float spacing = 3.0f;
 
     Vector3 dir;
     // Start is called before the first frame update
@@ -32,7 +32,7 @@ public class RangedMobMovement : MonoBehaviour
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
 
-        if (distance > 3)
+        if (distance > spacing)
         {
             dir = Vector3.Normalize(dir);
             transform.Translate(dir * Time.deltaTime * speed, Space.World);
