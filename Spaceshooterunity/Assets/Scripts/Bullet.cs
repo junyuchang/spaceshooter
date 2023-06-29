@@ -44,7 +44,7 @@ public class Bullet : MonoBehaviour
         if(Time.time-startTime>3)
         {
             Destroy(gameObject);
-            }
+        }
     }
 
 }

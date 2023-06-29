@@ -47,8 +47,8 @@ GameObject:
   - component: {fileID: 6075858057241310618}
   - component: {fileID: 6859951403741265831}
   m_Layer: 0
-  m_Name: Triangle
-  m_TagString: Untagged
+  m_Name: FastRanged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,13 +61,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3767256686372519150}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.9444947, y: -2.418271, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 2.6805, y: -2.3991, z: 0}
+  m_LocalScale: {x: 0.122466914, y: 0.31492567, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7802607215562746437}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5806963653588775822
 SpriteRenderer:
@@ -111,7 +111,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: e494b614923027c44b872edb5549be8c, type: 3}
-  m_Color: {r: 1, g: 0.9968063, b: 0, a: 1}
+  m_Color: {r: 0, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -208,8 +208,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2793623cd77f484499476a67354eae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
-  damage: 100
+  health: 10
+  damage: 50
 --- !u!114 &6075858057241310618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,9 +222,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d348beec3894eaa4c83e93678ae48a48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedValue: 5
+  speedValue: 20
   player: {fileID: 0}
   rb: {fileID: 1223010540436280772}
+  spacing: 2
 --- !u!114 &6859951403741265831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,4 +240,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 7802607215562746437}
   bulletPreFab: {fileID: 2944711250480448070, guid: 1e3e8e2464912d14781a61f02a9f1462, type: 3}
-  bulletForce: 8
+  bulletForce: 12
