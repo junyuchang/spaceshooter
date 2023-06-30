@@ -3,11 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mob : MonoBehaviour
+public class BombMob : MonoBehaviour
 {
     public float health = 50f;
     public int damage = 100;
-    public bool bombMob = false;
 
     public void TakeDamage(float damage)
     {
@@ -30,15 +29,7 @@ public class Mob : MonoBehaviour
         if (player != null)
         {
             player.TakeDamage(damage);
-            if(bombMob)
-            {
-                Die();
-            }
+            Die();
         }
-        /*Mob enemy = hitInfo.GetComponent<Mob>();
-        if (enemy != null)
-        {
-            enemy.TakeDamage(bulletDamage);
-        }*/
     }
 }
