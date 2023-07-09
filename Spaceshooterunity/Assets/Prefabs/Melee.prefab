@@ -15,7 +15,11 @@ GameObject:
   - component: {fileID: 6346939269218210728}
   - component: {fileID: 7816019799930339155}
   m_Layer: 0
+<<<<<<< HEAD:Spaceshooterunity/Assets/Prefabs/Melee.prefab
   m_Name: Melee
+=======
+  m_Name: Square
+>>>>>>> SomeUpgrades+RangedMobs:Spaceshooterunity/Assets/Prefabs/Square.prefab
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -174,6 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 50
   damage: 100
+<<<<<<< HEAD:Spaceshooterunity/Assets/Prefabs/Melee.prefab
 --- !u!114 &7816019799930339155
 MonoBehaviour:
   m_ObjectHideFlags: 0
