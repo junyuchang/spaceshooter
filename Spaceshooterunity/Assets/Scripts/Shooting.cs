@@ -8,6 +8,7 @@ public class Shooting : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPreFab;
+    public GameObject fireBulletPreFab;
 
     public float bulletForce = 50f;
     public float firerate = 4f;
@@ -17,7 +18,7 @@ public class Shooting : MonoBehaviour
     private bool toggleOn = false;
 
     //upgrades (maybe move to different script like stats or something)
-    public int fireRateLvl = 1, coneLvl = 1, lineLvl = 1;
+    public int fireRateLvl = 1, coneLvl = 1, lineLvl = 1, fireDamageLvl=0;
 
     // Update is called once per frame
     void Update()
@@ -61,8 +62,12 @@ public class Shooting : MonoBehaviour
 
 
     void shoot(){
-        
         GameObject bullet = Instantiate(bulletPreFab, firePoint.position,firePoint.rotation);
+        if(fireDamageLvl>=1)
+        {
+            bullet.GetComponent<Bullet>().fire = true;
+            bullet.GetComponent<Bullet>().fireDamage = fireDamageLvl*5;
+        }
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
         if (coneLvl > 1)
@@ -145,7 +150,6 @@ public class Shooting : MonoBehaviour
         return angles;
     }
 
-
     // Below are upgrades
 
     public void FireRateUp()
@@ -161,5 +165,10 @@ public class Shooting : MonoBehaviour
     public void LineLvlUp()
     {
         lineLvl += 1;
+    }
+
+    public void fireDamageUp()
+    {
+        fireDamageLvl+=1;
     }
 }
