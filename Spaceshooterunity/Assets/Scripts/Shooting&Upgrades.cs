@@ -8,6 +8,7 @@ public class Shooting : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPreFab;
+    public GameObject pulseSprite;
 
     public float bulletForce = 50f;
     public float firerate = 4f;
@@ -15,9 +16,11 @@ public class Shooting : MonoBehaviour
     private bool isShooting = false;
     private Coroutine shooting;
     private bool toggleOn = false;
-
-    //upgrades (maybe move to different script like stats or something)
-    public int fireRateLvl = 1, coneLvl = 1, lineLvl = 1;
+    public float pulsespdLvl = 1f;
+    //upgrades (maybe move to different script like stats or something in future)
+    public int fireRateLvl = 1, coneLvl = 1, lineLvl = 1, bulletspdLvl = 1, pulseLvl = 0;
+    private Coroutine pulsing;
+    private bool pulsestarted = false;
 
     // Update is called once per frame
     void Update()
@@ -48,6 +51,14 @@ public class Shooting : MonoBehaviour
                 isShooting = false;
             }
         }
+
+        // apply pulse dmg
+        if (pulsestarted == false && pulseLvl > 0)
+        {
+            pulsing = StartCoroutine(PulseCoroutine());
+            pulsestarted = true;
+        }
+
     }
 
     IEnumerator ShootCoroutine()
@@ -60,9 +71,10 @@ public class Shooting : MonoBehaviour
     }
 
 
-    void shoot(){
-        
-        GameObject bullet = Instantiate(bulletPreFab, firePoint.position,firePoint.rotation);
+    void shoot()
+    {
+
+        GameObject bullet = Instantiate(bulletPreFab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
         if (coneLvl > 1)
@@ -75,7 +87,7 @@ public class Shooting : MonoBehaviour
         }
     }
 
-    // below are helpers for extra cone and line guns from upgrades
+    // helpers for extra cone and line guns from upgrades
 
     void extraLines(List<float> pos)
     {
@@ -117,19 +129,19 @@ public class Shooting : MonoBehaviour
 
     List<int> coneAngles()
     {
-        List<int> angles = new List<int> ();
+        List<int> angles = new List<int>();
         int interval = 1;
         if (2 <= coneLvl && coneLvl <= 3)
         {
-            interval = (int) Math.Round(20f / (coneLvl - 1));
+            interval = (int)Math.Round(20f / (coneLvl - 1));
         }
         else if (4 <= coneLvl && coneLvl <= 6)
         {
-            interval = (int) Math.Round(45f / (coneLvl - 1));
+            interval = (int)Math.Round(45f / (coneLvl - 1));
         }
         else if (7 <= coneLvl && coneLvl <= 9)
         {
-            interval = (int) Math.Round(60f / (coneLvl - 1));
+            interval = (int)Math.Round(60f / (coneLvl - 1));
         }
         else if (coneLvl > 9)
         {
@@ -145,11 +157,24 @@ public class Shooting : MonoBehaviour
         return angles;
     }
 
+    // for pulse upgrade
+
+    IEnumerator PulseCoroutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(pulsespdLvl);
+            pulseSprite.SetActive(true);
+            yield return new WaitForSeconds(0.1f);
+            pulseSprite.SetActive(false);
+        }
+    }
 
     // Below are upgrades
 
     public void FireRateUp()
     {
+        fireRateLvl += 1;
         firerate = firerate * 1.75f;
     }
 
@@ -161,5 +186,16 @@ public class Shooting : MonoBehaviour
     public void LineLvlUp()
     {
         lineLvl += 1;
+    }
+
+    public void BulletspdLvlUp()
+    {
+        bulletForce = bulletForce * 2;
+        bulletspdLvl += 1;
+    }
+
+    public void PulseLvlUp()
+    {
+        pulseLvl += 1;
     }
 }
