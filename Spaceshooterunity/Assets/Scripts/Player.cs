@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public int health;
     public float armor = 1.0f;
 
+    public GameObject deathMenu;
     public HealthBar healthbar;
 
     // Start is called before the first frame update
@@ -21,16 +22,35 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        /*if(Input.GetKeyDown(KeyCode.Space))
         {
             TakeDamage(20);
+        }
+        */
+
+        if (health <= 0)
+        {
+            Time.timeScale = 0f;
+            die();
         }
     }
     public void TakeDamage(int damage)
     {
         health -= Convert.ToInt32(damage *armor);
         healthbar.SetHealth(health);
+    }
 
+    void die()
+    {
+        deathMenu.SetActive(true);
+    }
+
+    public void Revive()
+    {
+        health = maxHealth;
+        healthbar.SetMaxHealth(maxHealth);
+        deathMenu.SetActive(false);
+        Time.timeScale = 1f;
     }
     //This increases health by 1.2 for now can think of a scalling idea later.
     //Also full restores health
