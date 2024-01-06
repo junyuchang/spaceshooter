@@ -8,6 +8,7 @@ public class Shooting : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPreFab;
+    public GameObject fireBulletPreFab;
     public GameObject pulseSprite;
 
     public float bulletForce = 50f;
@@ -18,7 +19,7 @@ public class Shooting : MonoBehaviour
     private bool toggleOn = false;
     public float pulsespdLvl = 1f;
     //upgrades (maybe move to different script like stats or something in future)
-    public int fireRateLvl = 1, coneLvl = 1, lineLvl = 1, bulletspdLvl = 1, pulseLvl = 0;
+    public int fireRateLvl = 1, coneLvl = 1, lineLvl = 1, bulletspdLvl = 1, pulseLvl = 0, fireDamageLvl=0;
     private Coroutine pulsing;
     private bool pulsestarted = false;
 
@@ -73,8 +74,12 @@ public class Shooting : MonoBehaviour
 
     void shoot()
     {
-
-        GameObject bullet = Instantiate(bulletPreFab, firePoint.position, firePoint.rotation);
+        GameObject bullet = Instantiate(bulletPreFab, firePoint.position,firePoint.rotation);
+        if(fireDamageLvl>=1)
+        {
+            bullet.GetComponent<Bullet>().fire = true;
+            bullet.GetComponent<Bullet>().fireDamage = fireDamageLvl*5;
+        }
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
         if (coneLvl > 1)
@@ -186,6 +191,11 @@ public class Shooting : MonoBehaviour
     public void LineLvlUp()
     {
         lineLvl += 1;
+    }
+
+    public void fireDamageUp()
+    {
+        fireDamageLvl+=1;
     }
 
     public void BulletspdLvlUp()
