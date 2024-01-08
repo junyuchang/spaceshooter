@@ -172,3 +172,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitEffect: {fileID: 3952601400673322310, guid: 93a7764a1f9618d4da5cd2c0bca6857a, type: 3}
+  bulletDamage: 10
+  fire: 0

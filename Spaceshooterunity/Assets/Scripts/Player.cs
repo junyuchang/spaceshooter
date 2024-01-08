@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using System;
 
 public class Player : MonoBehaviour
 {
     public int maxHealth = 1000;
     public int health;
+    public float armor = 1.0f;
+
     public GameObject deathMenu;
     public HealthBar healthbar;
     public Tilemap tiles;
@@ -40,7 +43,7 @@ public class Player : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
-        health -= damage;
+        health -= Convert.ToInt32(damage *armor);
         healthbar.SetHealth(health);
     }
 
@@ -55,5 +58,19 @@ public class Player : MonoBehaviour
         healthbar.SetMaxHealth(maxHealth);
         deathMenu.SetActive(false);
         Time.timeScale = 1f;
+    }
+    //This increases health by 1.2 for now can think of a scalling idea later.
+    //Also full restores health
+    public void HealthUpgrade()
+    {
+        maxHealth = Convert.ToInt32(maxHealth *1.2);
+        health = maxHealth;
+    }
+    //Armor will just be a value that reduces the value of damage taken each time
+    //the player gets hit so armor will range from 1-0.1 and will multiply damage taken by the
+    //player so each enemy hit does less.
+    public void upgradeArmor()
+    {
+        armor = armor *0.8f;
     }
 }
