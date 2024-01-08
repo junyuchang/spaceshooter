@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Player : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Player : MonoBehaviour
     public int health;
     public GameObject deathMenu;
     public HealthBar healthbar;
+    public Tilemap tiles;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +31,11 @@ public class Player : MonoBehaviour
         {
             Time.timeScale = 0f;
             die();
+        }
+
+        if(tiles.GetTile(Vector3Int.FloorToInt(transform.position)).name == "Starry background 2 red")
+        {
+            TakeDamage(1);
         }
     }
     public void TakeDamage(int damage)
