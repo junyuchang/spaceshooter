@@ -1,2 +1,2 @@
 # spaceshooter
- david victor bullethell game
+Bullethell roguelike game
